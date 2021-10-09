@@ -21,17 +21,20 @@ expOpt1Title = "Title: None"
 expOpt1Emp = "Employer: None"
 expOpt1Start = "Start Date: None"
 expOpt1End = "End Date: None"
+expOpt1Loc = "Job Location: None"
 expOpt1Des = "Description: None"
 expOpt2Title = "Title: None"
 expOpt2Emp = "Employer: None"
 expOpt2Start = "Start Date: None"
 expOpt2End = "End Date: None"
+expOpt2Loc = "Job Location: None"
 expOpt2Des = "Description: None"
 expOpt3Title = "Title: None"
 expOpt3Emp = "Employer: None"
 expOpt3Start = "Start Date: None"
 expOpt3End = "End Date: None"
 expOpt3Des = "Description: None"
+expOpt3Loc = "Job Location: None"
 eduOptSchool = "School: None"
 eduOptDegree = "Degree: None"
 eduOptYears = "Years: None"
@@ -177,6 +180,8 @@ def create(accCount):
                 file.write("\t")
                 file.write(expOpt1End)
                 file.write("\t")
+                file.write(expOpt1Loc)
+                file.write("\t")
                 file.write(expOpt1Des)
                 file.write("\t")
                 file.write(expOpt2Title)
@@ -187,6 +192,8 @@ def create(accCount):
                 file.write("\t")
                 file.write(expOpt2End)
                 file.write("\t")
+                file.write(expOpt2Loc)
+                file.write("\t")
                 file.write(expOpt2Des)
                 file.write("\t")
                 file.write(expOpt3Title)
@@ -196,6 +203,8 @@ def create(accCount):
                 file.write(expOpt3Start)
                 file.write("\t")
                 file.write(expOpt3End)
+                file.write("\t")
+                file.write(expOpt3Loc)
                 file.write("\t")
                 file.write(expOpt3Des)
                 file.write("\t")
@@ -253,6 +262,8 @@ def create(accCount):
                 file.write("\t")
                 file.write(expOpt1End)
                 file.write("\t")
+                file.write(expOpt1Loc)
+                file.write("\t")
                 file.write(expOpt1Des)
                 file.write("\t")
                 file.write(expOpt2Title)
@@ -263,6 +274,8 @@ def create(accCount):
                 file.write("\t")
                 file.write(expOpt2End)
                 file.write("\t")
+                file.write(expOpt2Loc)
+                file.write("\t")
                 file.write(expOpt2Des)
                 file.write("\t")
                 file.write(expOpt3Title)
@@ -272,6 +285,8 @@ def create(accCount):
                 file.write(expOpt3Start)
                 file.write("\t")
                 file.write(expOpt3End)
+                file.write("\t")
+                file.write(expOpt3Loc)
                 file.write("\t")
                 file.write(expOpt3Des)
                 file.write("\t")
@@ -335,16 +350,19 @@ def login():  # login function
     global expOpt1Emp
     global expOpt1Start
     global expOpt1End
+    global expOpt1Loc
     global expOpt1Des
     global expOpt2Title
     global expOpt2Emp
     global expOpt2Start
     global expOpt2End
+    global expOpt2Loc
     global expOpt2Des
     global expOpt3Title
     global expOpt3Emp
     global expOpt3Start
     global expOpt3End
+    global expOpt3Loc
     global expOpt3Des
     global eduOptSchool
     global eduOptDegree
@@ -384,23 +402,26 @@ def login():  # login function
             expOpt1Emp = info[13]
             expOpt1Start = info[14]
             expOpt1End = info[15]
-            expOpt1Des = info[16]
+            expOpt1Loc = info[16]
+            expOpt1Des = info[17]
 
-            expOpt2Title = info[17]
-            expOpt2Emp = info[18]
-            expOpt2Start = info[19]
-            expOpt2End = info[20]
-            expOpt2Des = info[21]
+            expOpt2Title = info[18]
+            expOpt2Emp = info[19]
+            expOpt2Start = info[20]
+            expOpt2End = info[21]
+            expOpt2Loc = info[22]
+            expOpt2Des = info[23]
 
-            expOpt3Title = info[22]
-            expOpt3Emp = info[23]
-            expOpt3Start = info[24]
-            expOpt3End = info[25]
-            expOpt3Des = info[26]
+            expOpt3Title = info[24]
+            expOpt3Emp = info[25]
+            expOpt3Start = info[26]
+            expOpt3End = info[27]
+            expOpt3Loc = info[28]
+            expOpt3Des = info[29]
 
-            eduOptSchool = info[27]
-            eduOptDegree = info[28]
-            eduOptYears = info[29]
+            eduOptSchool = info[30]
+            eduOptDegree = info[31]
+            eduOptYears = info[32]
             menu()
             return
 
@@ -798,22 +819,22 @@ def email():
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     else:
         print("Email notifications turned on.")
         emailOpt = "On"
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -843,11 +864,11 @@ def sms():
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
 
     else:
         print("SMS notifications turned on.")
@@ -855,11 +876,11 @@ def sms():
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -889,22 +910,22 @@ def adv():
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     else:
         print("Targeted Advertising notifications turned on.")
         advOpt = "On"
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -966,22 +987,22 @@ def switchLanguage():
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     else:
         print("Switched the language to English.")
         languageOpt = "English"
         listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
                              + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
                              + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                             + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                             + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                             + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                             + "\t" + eduOptYears
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -1112,13 +1133,13 @@ def profileTitle():
     file = open("Login.txt", "r")
     listOfLines = file.readlines()
     listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
-                         + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
-                         + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                         + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                         + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                         + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                         + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                         + "\t" + eduOptYears
+                             + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
+                             + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -1141,13 +1162,13 @@ def profileMajor():
     file = open("Login.txt", "r")
     listOfLines = file.readlines()
     listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
-                         + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
-                         + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                         + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                         + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                         + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                         + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                         + "\t" + eduOptYears
+                             + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
+                             + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -1170,13 +1191,13 @@ def profileUni():
     file = open("Login.txt", "r")
     listOfLines = file.readlines()
     listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
-                         + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
-                         + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                         + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                         + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                         + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                         + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                         + "\t" + eduOptYears
+                             + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
+                             + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -1199,13 +1220,13 @@ def profileAbout():
     file = open("Login.txt", "r")
     listOfLines = file.readlines()
     listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
-                         + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
-                         + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                         + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                         + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                         + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                         + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                         + "\t" + eduOptYears
+                             + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
+                             + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -1264,13 +1285,13 @@ def profileEdu():
     file = open("Login.txt", "r")
     listOfLines = file.readlines()
     listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
-                         + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
-                         + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                         + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                         + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                         + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                         + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                         + "\t" + eduOptYears
+                             + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
+                             + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -1283,16 +1304,19 @@ def jobExp(x):
     global expOpt1Emp
     global expOpt1Start
     global expOpt1End
+    global expOpt1Loc
     global expOpt1Des
     global expOpt2Title
     global expOpt2Emp
     global expOpt2Start
     global expOpt2End
+    global expOpt2Loc
     global expOpt2Des
     global expOpt3Title
     global expOpt3Emp
     global expOpt3Start
     global expOpt3End
+    global expOpt3Loc
     global expOpt3Des
     count = 0
     print("Enter information about your past jobs here")
@@ -1308,6 +1332,7 @@ def jobExp(x):
         expOpt1Emp = "Employer: " + jobEmployer
         expOpt1Start = "Start Date: " + jobStart
         expOpt1End = "End Date: " + jobEnd
+        expOpt1Loc = "Job Location: " + jobLocation
         expOpt1Des = "Description: " + jobDes
     elif x == 2:
         expOpt2Title = "Title: " + jobTitle
@@ -1332,13 +1357,13 @@ def jobExp(x):
     file = open("Login.txt", "r")
     listOfLines = file.readlines()
     listOfLines[count] = firstName + "\t" + lastName + "\t" + userName + "\t" + password + "\t" + emailOpt + "\t" \
-                         + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
-                         + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
-                         + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Des + "\t" + expOpt2Title \
-                         + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" + expOpt2Des \
-                         + "\t" + expOpt3Title + "\t" + expOpt3Emp + "\t" + expOpt3Start + "\t" \
-                         + expOpt3End + "\t" + expOpt3Des + "\t" + eduOptSchool + "\t" + eduOptDegree \
-                         + "\t" + eduOptYears
+                             + smsOpt + "\t" + advOpt + "\t" + languageOpt + "\t" + titleOpt + "\t" \
+                             + majorOpt + "\t" + UniOpt + "\t" + aboutOpt + "\t" + expOpt1Title + "\t" + expOpt1Emp \
+                             + "\t" + expOpt1Start + "\t" + expOpt1End + "\t" + expOpt1Loc + "\t" + expOpt1Des + "\t" \
+                             + expOpt2Title + "\t" + expOpt2Emp + "\t" + expOpt2Start + "\t" + expOpt2End + "\t" \
+                             + expOpt2Loc + "\t" + expOpt2Des + "\t" + expOpt3Title + "\t" + expOpt3Emp \
+                             + "\t" + expOpt3Start + "\t" + expOpt3End + "\t" + expOpt1Loc + "\t" + expOpt3Des \
+                             + "\t" + eduOptSchool + "\t" + eduOptDegree + "\t" + eduOptYears
     file = open("Login.txt", "w")
     file.writelines(listOfLines)
     file.close()
@@ -1361,18 +1386,21 @@ def viewProfile():
     print(expOpt1Emp)
     print(expOpt1Start)
     print(expOpt1End)
+    print(expOpt1Loc)
     print(expOpt1Des)
     print("\nJob Experience2")
     print(expOpt2Title)
     print(expOpt2Emp)
     print(expOpt2Start)
     print(expOpt2End)
+    print(expOpt2Loc)
     print(expOpt2Des)
     print("\nJob Experience3")
     print(expOpt3Title)
     print(expOpt3Emp)
     print(expOpt3Start)
     print(expOpt3End)
+    print(expOpt3Loc)
     print(expOpt3Des)
     print("\nEducation")
     print(eduOptSchool)
