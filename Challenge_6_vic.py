@@ -1921,7 +1921,7 @@ def displayJobDetails(choice):
                     print("invalid entry: please enter a choice within range")
                     it_is = False
         if choiceToDelete == 1:
-            print("execute delete function")
+            deleteJob(choice)
         else:
             menu()
     else:   # case in which user selected a job that they HAVE NOT posted
@@ -1984,6 +1984,23 @@ def displayJobs():
         print("No Jobs have been posted")
         menu()
     selectJob(j)
+
+
+def deleteJob(choice):
+    with open("Job_Posts.txt", "r") as f:
+        lines = f.readlines()
+        app = lines[choice-1].split("\t")
+        dele = app[7].split(',')
+        dele = dele[1:]
+        file = open("job_deletions.txt","w")
+        for i in dele:
+            if dele[i] != "\n":
+                file.write(dele[i])
+
+    #with open("Job_Posts.txt", "w") as f:
+    #    for line in lines:
+    #        if line != lines[choice-1]:
+    #            f.write(line)
 
 
 # applyForAJob(2)
