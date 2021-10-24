@@ -1,0 +1,42 @@
+* ac66fe3 (HEAD -> main, tag: 211024Texas, origin/CEN4020211018, merged) Final Version of Challenge 6
+* fc0ea52 (tag: 211023Texas) update of code on 10/23/21
+* 6928468 (tag: 211022Texas) update of code on 10/22/21
+* 9e2b5d4 (tag: 211021Texas, tag: 211021) 211021
+* 79230a0 removing files
+* f40f6c2 removing files
+* 762b604 removing test.txt
+* 3a7c112 removing test.txt
+| * e37e8d9 (refs/stash) On CEN4020211018: !!GitHub_Desktop<CEN4020211018>
+|/| 
+| * 8f67343 index on CEN4020211018: d14471c added test.txt
+|/  
+* d14471c added test.txt
+*   2152afa (origin/main, origin/HEAD) Merge pull request #2 from vbialkowski/COP4050101011
+|\  
+| * 50193b9 Created Challenge_5.py
+|/  
+* 7dd0fa4 Added previous weeks work to main
+*   593cd01 Merge branch 'Suraj'
+|\  
+| *   5437f10 (origin/Suraj, Suraj) Merge remote-tracking branch 'origin/Allen' into Suraj
+| |\  
+| * | 132202d Create Challenge4_test.py
+* | |   9cf7ff0 Merge branch 'Allen'
+|\ \ \  
+| * | | 550b9db (origin/Allen, Allen) Update Challenge_4.py
+| | |/  
+| |/|   
+| * | 88c503e Delete Challenge_3.py
+* | | 30b662f Tuesday File
+* | | 24b3f2b Delete Challenge_3.py
+| |/  
+|/|   
+| | * 6883ef9 (origin/COP4020211004, COP4020211004) Create Challenge3_test_full_job_list.py
+| | * d3ee974 (tag: 211007Texas) Added last weeks test file
+| |/  
+| * 2739837 (tag: 211006Texas) Add files via upload
+| * 7d50f8a (tag: 211005Texas) Add files via upload
+|/  
+* a25317c (origin/Victor, origin/Manuel, origin/Dylan) Add files via upload
+* c36248b Delete Challenge_3.py
+* eda1da8 Add files via upload
