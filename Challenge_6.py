@@ -197,6 +197,7 @@ def create(accCount):
                 file.write("\t")
                 file.write(expOpt1End)
                 file.write("\t")
+                file.write("\t")
                 file.write(expOpt1Loc)
                 file.write("\t")
                 file.write(expOpt1Des)
@@ -505,6 +506,11 @@ def searchJob():
 
     # if a person is signed-in they can post a job in the system
     if signedIn:
+        number_deleted_jobs = countDeletedJobs()
+        if number_deleted_jobs == 1:
+            print("You applied for 1 job but it has been deleted.\n")
+        if number_deleted_jobs > 1:
+            print(f"You applied for {number_deleted_jobs} jobs which have been deleted.")
         print("[1] Post a Job")
         print("[2] Search for a job")
         print("[3] Return to menu")
@@ -1824,41 +1830,6 @@ def viewProfileOfFriend(friend):
                 print(f"You can not see this profile because {friend} has not created a profile yet!")
 
 
-# create log-in text file if it does not exist
-loginFile = "Login.txt"
-loginPath = Path(loginFile)
-if loginPath.is_file():
-    pass
-else:
-    CreateFile = open("Login.txt", "a")
-    CreateFile.close()
-
-# create job posts text file if it does not exist
-jobFile = "Job_Posts.txt"
-jobPath = Path(jobFile)
-if jobPath.is_file():
-    pass
-else:
-    createFile = open("Job_Posts.txt", "a")
-    createFile.close()
-# display menu
-
-friendFile = "list_of_friends.txt"
-friendPath = Path(friendFile)
-if friendPath.is_file():
-    pass
-else:
-    createFile = open("list_of_friends.txt", "a")
-    createFile.close()
-requestFile = "friend_requests.txt"
-requestPath = Path(requestFile)
-if requestPath.is_file():
-    pass
-else:
-    createFile = open("friend_requests.txt", "a")
-    createFile.close()
-
-
 def applyForAJob(choice):
     info = []
     i = 1
@@ -1870,6 +1841,7 @@ def applyForAJob(choice):
     if userName in applicants:
         print("You've already applied for this job!")
         menu()
+        return
     else:
         applicants = applicants.strip()
         applicants = applicants + userName + ","
@@ -1886,6 +1858,7 @@ def applyForAJob(choice):
         startDate = input("Please enter the date you can start working: ")
         paragraph = input("Please submit a paragraph stating why you would be good for this job: ")
         menu()
+        return
 
 
 def displayJobDetails(choice):
@@ -1903,7 +1876,7 @@ def displayJobDetails(choice):
     print("Location: " + info[3])
     print("Salary: " + info[4])
     print("Posted By: " + info[5])
-    if userName in info[6]:  # case in which user selected a job that they posted
+    if userName == info[6]:  # case in which user selected a job that they posted
         print("[1] Delete This Job Post")
         print("[2] Return to Menu")
         it_is = False
@@ -1921,9 +1894,11 @@ def displayJobDetails(choice):
                     print("invalid entry: please enter a choice within range")
                     it_is = False
         if choiceToDelete == 1:
-            print("execute delete function")
+            deleteJob(choice)
+            return
         else:
             menu()
+            return
     else:   # case in which user selected a job that they HAVE NOT posted
         print("[1] Apply For This Job")
         print("[2] Return to Menu")
@@ -1943,8 +1918,10 @@ def displayJobDetails(choice):
                     it_is = False
         if choiceToApply == 1:
             applyForAJob(choice)
+            return
         else:
             menu()
+            return
 
 
 def selectJob(numOfChoices):
@@ -1983,9 +1960,100 @@ def displayJobs():
     if len(jobTitles) == 0:
         print("No Jobs have been posted")
         menu()
+        return
     selectJob(j)
 
 
-# applyForAJob(2)
+def deleteJob(choice):
+    f = open("Job_Posts.txt", "r")
+    lines = f.readlines()
+    f.close()
+    app = lines[choice-1].split("\t")
+    dele = app[7].split(",")
+    i = 1
+    fileDel = open("job_deletions.txt", "a")
+    while i < (len(dele) - 1):
+        fileDel.write(dele[i] + "\n")
+        i += 1
+    fileDel.close()
+    with open("Job_Posts.txt", "w") as f:
+        for line in lines:
+            if line != lines[choice-1]:
+                f.write(line)
+        f.close()
+    menu()
+    return
+
+
+def countDeletedJobs():
+    global userName
+    count = 0
+    filesize = os.path.getsize("job_deletions.txt")
+    if filesize == 0:
+        return count
+    else:
+        file = open("job_deletions.txt", "r")
+        for line in file:
+            jobs = line.split("\n")
+            if userName == jobs[0] or userName + "\n" == jobs[0]:
+                count += 1
+        file.close()
+        file = open("job_deletions.txt", "r")
+        lines = file.readlines()
+        file.close()
+
+        new_file = open("job_deletions.txt", "w")
+        for line in lines:
+            if line.strip("\n") != userName:
+                new_file.write(line)
+        file.close()
+        return count
+
+
+# create log-in text file if it does not exist
+loginFile = "Login.txt"
+loginPath = Path(loginFile)
+if loginPath.is_file():
+    pass
+else:
+    CreateFile = open("Login.txt", "a")
+    CreateFile.close()
+
+# create job posts text file if it does not exist
+jobFile = "Job_Posts.txt"
+jobPath = Path(jobFile)
+if jobPath.is_file():
+    pass
+else:
+    createFile = open("Job_Posts.txt", "a")
+    createFile.close()
+
+# list of friend creation
+friendFile = "list_of_friends.txt"
+friendPath = Path(friendFile)
+if friendPath.is_file():
+    pass
+else:
+    createFile = open("list_of_friends.txt", "a")
+    createFile.close()
+
+# friend request creation
+requestFile = "friend_requests.txt"
+requestPath = Path(requestFile)
+if requestPath.is_file():
+    pass
+else:
+    createFile = open("friend_requests.txt", "a")
+    createFile.close()
+
+# job deletion creation
+deletedJobsFile = "job_deletions.txt"
+deletedJobsPath = Path(deletedJobsFile)
+if deletedJobsPath.is_file():
+    pass
+else:
+    createFile = open("job_deletions.txt", "a")
+    createFile.close()
+#call menu
 menu()
 
