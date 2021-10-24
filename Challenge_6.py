@@ -513,14 +513,22 @@ def searchJob():
             print(f"You applied for {number_deleted_jobs} jobs which have been deleted.")
         print("[1] Post a Job")
         print("[2] Search for a job")
-        print("[3] Return to menu")
+        print("[3] Generate saved jobs")
+        print("[4] Generate unsaved jobs")
+        print("[5] Return to menu")
         choice = int(input("Enter Your Option: "))
-        while choice != 3:
+        while choice != 5:
             if choice == 1:
                 postJob()
                 return
             if choice == 2:
                 displayJobs()
+                return
+            if choice == 3:
+                displaySavedJobs()
+                return
+            if choice == 4:
+                displayUnsavedJobs()
                 return
             else:
                 print("Invalid Option")
@@ -580,6 +588,10 @@ def postJob():
         file.write(userName)
         file.write("\t")
         file.write("applicants,")
+        file.write("\t")
+        file.write("saved,")
+        file.write("\t")
+        file.write("Placeholder")
         file.write("\n")
         file.close()
         print("Job Posted!")
@@ -590,6 +602,7 @@ def postJob():
         print("There are already 10 jobs posted!")
         searchJob()
         return
+
 
 def seeListOfFriends():
     global signedIn
@@ -1830,6 +1843,85 @@ def viewProfileOfFriend(friend):
                 print(f"You can not see this profile because {friend} has not created a profile yet!")
 
 
+def displaySavedJobs():
+    file = open("Job_Posts.txt", "r")
+    for line in file:
+        info = line.split("\t")
+        if userName in info[8]:
+            print("Title: " + info[0])
+            print("Job Description: " + info[1])
+            print("Employer: " + info[2])
+            print("Location: " + info[3])
+            print("Salary: " + info[4])
+            print("Posted By: " + info[5])
+            print('\n')
+    option = input("Type anything to Return To Menu: ")
+    menu()
+
+
+def displayUnsavedJobs():
+    file = open("Job_Posts.txt", "r")
+    for line in file:
+        info = line.split("\t")
+        if userName not in info[8]:
+            print("Title: " + info[0])
+            print("Job Description: " + info[1])
+            print("Employer: " + info[2])
+            print("Location: " + info[3])
+            print("Salary: " + info[4])
+            print("Posted By: " + info[5])
+            print('\n')
+    option = input("Type anything to Return To Menu: ")
+    menu()
+
+def saveAJob(choice):
+    info = []
+    i = 1
+    tempstring = ""
+    for line in open("Job_Posts.txt", "r"):
+        if i == choice:
+            info = line.split("\t")
+        i += 1
+    applicants = info[8]
+    if userName in applicants:
+        print("The job has been unsaved.")
+        temp = applicants.split(",")
+        x = 0
+        while x < (len(temp) - 1):
+            if temp[x] == userName:
+                x += 1
+            else:
+                tempstring = tempstring + temp[x] + ","
+                x += 1
+        file = open("Job_Posts.txt", "r")
+        listOfLines = file.readlines()
+        file.close()
+        listOfLines[choice - 1] = info[0] + '\t' + info[1] + '\t' + info[2] + '\t' + info[3] + '\t' + info[4]  \
+                                  + '\t' + info[5] + '\t' + info[6] + '\t' + info[7] + '\t' + tempstring + "\t" + \
+                                  info[9]
+        file = open("Job_Posts.txt", "w")
+        file.writelines(listOfLines)
+        file.close()
+        menu()
+        return
+    else:
+        print("The job has been saved.")
+        applicants = applicants + userName + ","
+        print(applicants)
+        listOfLines = []
+        file = open("Job_Posts.txt", "r")
+        listOfLines = file.readlines()
+        file.close()
+        listOfLines[choice - 1] = info[0] + '\t' + info[1] + '\t' + info[2] + '\t' + info[3] + '\t' + info[4]  \
+                                  + '\t' + info[5] + '\t' + info[6] + '\t' + info[7] + '\t' + applicants + "\t" + \
+                                  info[9]
+        file = open("Job_Posts.txt", "w")
+        file.writelines(listOfLines)
+        file.close()
+        menu()
+        return
+
+
 def applyForAJob(choice):
     info = []
     i = 1
@@ -1843,14 +1935,14 @@ def applyForAJob(choice):
         menu()
         return
     else:
-        applicants = applicants.strip()
         applicants = applicants + userName + ","
         listOfLines = []
         file = open("Job_Posts.txt", "r")
         listOfLines = file.readlines()
         file.close()
-        listOfLines[choice - 1] = info[0] + '\t' + info[1] + '\t' + info[2] + '\t' + info[3] + '\t' + info[4]
-        listOfLines[choice - 1] = listOfLines[choice - 1] + '\t' + info[5] + '\t' + info[6] + '\t' + applicants + '\n'
+        listOfLines[choice - 1] = info[0] + '\t' + info[1] + '\t' + info[2] + '\t' + info[3] + '\t' + info[4]  \
+                                  + '\t' + info[5] + '\t' + info[6] + '\t' + applicants + "\t" + info[8] + "\t" \
+                                  + info[9]
         file = open("Job_Posts.txt", "w")
         file.writelines(listOfLines)
         file.close()
@@ -1901,7 +1993,8 @@ def displayJobDetails(choice):
             return
     else:   # case in which user selected a job that they HAVE NOT posted
         print("[1] Apply For This Job")
-        print("[2] Return to Menu")
+        print("[2] Save/Unsave this Job")
+        print("[3] Return to Menu")
         it_is = False
         choiceToApply = ""
         while not it_is:
@@ -1913,11 +2006,14 @@ def displayJobDetails(choice):
                 print("Invalid entry, please enter a number")
             if it_is:
                 choiceToApply = int(choiceToApply)
-                if (choiceToApply < 0) or (choiceToApply > 2):
+                if (choiceToApply < 0) or (choiceToApply > 3):
                     print("invalid entry: please enter a choice within range")
                     it_is = False
         if choiceToApply == 1:
             applyForAJob(choice)
+            return
+        elif choiceToApply == 2:
+            saveAJob(choice)
             return
         else:
             menu()
@@ -2054,6 +2150,6 @@ if deletedJobsPath.is_file():
 else:
     createFile = open("job_deletions.txt", "a")
     createFile.close()
-#call menu
+# call menu
 menu()
 
