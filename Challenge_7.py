@@ -1,5 +1,4 @@
 import os
-import math
 from pathlib import Path
 
 # global variable to see if user is signed-in
@@ -58,16 +57,15 @@ def menu():
     if signedIn:
         number_of_requests = countRequests()
         if number_of_requests == 1:
-            print("You have 1 pending request!\n")
+            print("You have 1 pending friend request!\n")
         if number_of_requests > 1:
-            print(f"You have {number_of_requests} pending requests!")
+            print(f"You have {number_of_requests} pending friends requests!")
 
         number_of_messages = countMessages(userName)
         if number_of_messages == 1:
-            print("You have 1 pending messages in your inbox!\n")
+            print("You have 1 new message in your inbox!\n")
         if number_of_messages > 1:
-            print(f"You have {number_of_messages} pending messages in your inbox!")
-
+            print(f"You have {number_of_messages} new messages in your inbox!")
 
     print("\nMenu")
     print("[1] Log In")
@@ -2154,6 +2152,7 @@ def getSubscription():
         if userName == temp[0]:
             subscription = temp[1].rstrip()
 
+
 def messagesPage():
     global signedIn
 
@@ -2169,8 +2168,12 @@ def messagesPage():
     choice = int(input("Enter Option: "))
     if choice == 1:
         sendMessage()
+        messagesPage()
+        return
     elif choice == 2:
         viewMessages()
+        messagesPage()
+        return
     elif choice == 3:
         menu()
         return
@@ -2178,6 +2181,7 @@ def messagesPage():
         print("Choice does not exist!")
         messagesPage()
         return
+
 
 
 def sendMessage():
@@ -2197,7 +2201,6 @@ def sendMessage():
 
         if len(friends) == 0:
             print("You don't have any friends to a send a message to!")
-            messagesPage()
             return
 
         if friends != "":
@@ -2234,27 +2237,42 @@ def sendMessage():
             messageFile = open("messages.txt", "w")
             messageFile.writelines(listOfLines)
             messageFile.close()
-            messagesPage()
             return
     else:
+        file = open("list_of_friends.txt", "rt")
+        friends = ""
+
+        for line in file:
+            friends = line.split(",")
+            if userName == friends[0] or userName + "\n" == friends[0]:
+                friends = friends[1:]
+                break
+        file.close()
+
+        if len(friends) != 0:
+            friends = [line.strip() for line in friends]
+            print(friends)
+
         listOfPeople = []
         file = open("messages.txt", "r")
         for line in file:
             if line != "\n":
                 info = line.split("\t")
                 if info[0] != userName:
-                    listOfPeople.append(info[0])
+                    listOfPeople.append(info[0].rstrip())
 
         if len(listOfPeople) == 0:
             print("\nThere are no users in the system!")
-            messagesPage()
             return
 
         if len(listOfPeople) != 0:
             option = 1
             print("\nThis is a list of InCollege students!\n")
             for people in listOfPeople:
-                print("{0}. {1}".format(option, people))
+                if people in friends:
+                    print("{0}. {1} (friend)".format(option, people))
+                else:
+                    print("{0}. {1}".format(option, people))
                 option += 1
 
             selection = int(input("\nEnter number corresponding with the student you'd like to send a message to: "))
@@ -2280,7 +2298,7 @@ def sendMessage():
             messageFile = open("messages.txt", "w")
             messageFile.writelines(listOfLines)
             messageFile.close()
-            messagesPage()
+
             return
 
 
@@ -2298,8 +2316,7 @@ def viewMessages():
     messagesFile.close()
 
     if len(messages) == 0:
-        "You have no messages!"
-        messagesPage()
+        print("You have no messages!")
         return
 
     if messages != "":
@@ -2363,7 +2380,7 @@ def viewMessages():
             choice = int(input("Enter Option: "))
 
         if choice == 1:
-            messagesPage()
+            return
         elif choice == 2:
             messages = deleteMessage(messages, pos)
         elif choice == 3:
@@ -2386,7 +2403,6 @@ def viewMessages():
         messageFile.writelines(listOfLines)
         messageFile.close()
 
-        messagesPage()
         return
 
 
@@ -2423,14 +2439,19 @@ def replyToMessage(name):
 
 
 def countMessages(name):
-    person = name
+    file = open("messages.txt", "r")
     count = 0
-    for line in open("messages.txt", "r"):
-        info = line.split("\t")
-        if person == info[0]:
-            count = (len(info) - 2) / 3
+    for line in file:
+        info = line.rstrip("\n")
+        info = info.split("\t")
+        if name == info[0]:
+            for element in info:
+                if element == "New":
+                    count += 1
 
-    return math.trunc(count)
+    file.close()
+
+    return count
 
 
 # create log-in text file if it does not exist
