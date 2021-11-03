@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from datetime import datetime
 
 # global variable to see if user is signed-in
 signedIn = False
@@ -66,6 +67,8 @@ def menu():
             print("You have 1 new message in your inbox!\n")
         if number_of_messages > 1:
             print(f"You have {number_of_messages} new messages in your inbox!")
+
+        jobTimeNotification()
 
     print("\nMenu")
     print("[1] Log In")
@@ -173,6 +176,8 @@ def create(accCount):
             membership = input("Input S for Standard or P for Plus Membership: ")
 
         if passCheck(password):
+            now = datetime.now()
+            now = str(now)
             # if password is valid and file is empty, then add user info to the system
             if filesize == 0:
                 file = open("Login.txt", "a")
@@ -181,6 +186,7 @@ def create(accCount):
                 requestsfile = open("friend_requests.txt", "a")
                 messages = open("messages.txt", "a")
                 newjob = open("NewJobs.txt", "a")
+                timejob = open("job_time.txt", "a")
                 file.write(firstName)
                 # separate user info in file with space
                 file.write("\t")
@@ -258,6 +264,11 @@ def create(accCount):
                 messages.write(membership)
                 messages.write("\n")
                 memberfile.close()
+                timejob.write(username)
+                timejob.write("\t")
+                timejob.write(now)
+                timejob.write("\n")
+                timejob.close()
                 file.close()
                 newjob.close()
                 friendsfile.close()
@@ -292,6 +303,7 @@ def create(accCount):
                 requestsfile = open("friend_requests.txt", "a")
                 memberfile = open("NewMembers.txt", "a")
                 messages = open("messages.txt", "a")
+                timejob = open("job_time.txt", "a")
                 file.write(firstName)
                 file.write("\t")
                 file.write(lastName)
@@ -366,6 +378,11 @@ def create(accCount):
                 messages.write(membership)
                 messages.write("\n")
                 memberfile.write(username + "\n")
+                timejob.write(username)
+                timejob.write("\t")
+                timejob.write(now)
+                timejob.write("\n")
+                timejob.close()
                 memberfile.close()
                 file.close()
                 newjob.close()
@@ -2022,6 +2039,7 @@ def saveAJob(choice):
 
 
 def applyForAJob(choice):
+    global userName
     info = []
     i = 1
     for line in open("Job_Posts.txt", "r"):
@@ -2048,6 +2066,26 @@ def applyForAJob(choice):
         graduationDate = input("Please enter a graduation date: ")
         startDate = input("Please enter the date you can start working: ")
         paragraph = input("Please submit a paragraph stating why you would be good for this job: ")
+
+        now = datetime.now()
+        now = str(now)
+        count = 0
+        for line in open("job_time.txt", "r"):
+            info = line.split("\t")
+            if userName == info[0].rstrip():
+                break
+            else:
+                count += 1
+
+        timeFile = open("job_time.txt", "r")
+        listOfLines = timeFile.readlines()
+        listOfLines[count] = userName + "\t" + now + "\n"
+        timeFile.close()
+
+        timeFile = open("job_time.txt", "w")
+        timeFile.writelines(listOfLines)
+        timeFile.close()
+
         menu()
         return
 
@@ -2600,6 +2638,41 @@ def jobsAppliedNotification():
     return
 
 
+def jobTimeNotification():
+    global userName
+    file = open("job_time.txt", "r")
+    for line in file:
+        info = line.split("\t")
+        if userName == info[0]:
+            dateandtime = info[1].split(" ")
+            date = dateandtime[0].split("-")
+            time = dateandtime[1].split(":")
+
+            now = datetime.now()
+            now = str(now)
+            now = now.split(" ")
+            nowdate = now[0].split("-")
+            nowtime = now[1].split(":")
+
+            temp1 = time[2].rstrip()
+            temp1 = float(temp1)
+            temp2 = float(nowtime[2])
+
+            day1 = datetime(int(date[0]), int(date[1]), int(date[2]), int(time[0]),
+                            int(time[1]), int(temp2))
+
+            day2 = datetime(int(nowdate[0]), int(nowdate[1]), int(nowdate[2]), int(nowtime[0]),
+                            int(nowtime[1]), int(temp1))
+
+            delta = day2 - day1
+            totaldays = int(delta.days)
+            if totaldays >= 7:
+                print("Remember – you're going to want to have a job when you graduate. "
+                      "\nMake sure that you start to apply for jobs today!")
+
+            break
+    return
+
 
 # create log-in text file if it does not exist
 loginFile = "Login.txt"
@@ -2668,6 +2741,14 @@ if newmemberPath.is_file():
     pass
 else:
     CreateFile = open("NewMembers.txt", "a")
+    CreateFile.close()
+
+jobTimeFile = "job_time.txt"
+jobTimePath = Path(jobTimeFile)
+if jobTimePath.is_file():
+    pass
+else:
+    CreateFile = open("job_time.txt", "a")
     CreateFile.close()
 
 # call menu
