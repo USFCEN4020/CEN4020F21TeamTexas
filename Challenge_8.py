@@ -2560,7 +2560,6 @@ def profileNotification():
         if info[2] == userName:
             if info[8] == "None" and info[9] == "None" and info[10] == "None" and info[11] == "None":
                 print("Don't forget to create a profile.")
-    file.close()
     return
 
 
@@ -2574,7 +2573,6 @@ def newJobNotification():
             while x < len(info):
                 print("New posted job titled: " + info[x])
                 x += 1
-    file.close()
     return
 
 
@@ -2605,7 +2603,6 @@ def newMemberNotification():
             while x < len(info):
                 print("New member joined: " + info[x])
                 x += 1
-    file.close()
     return
 
 
@@ -2637,8 +2634,7 @@ def jobsAppliedNotification():
         info = line.split("\t")
         if userName in info[7]:
             count += 1
-    print("Number of applied jobs: " + str(count))
-    file.close()
+    print("Number of applied jobs: ", count)
     return
 
 
@@ -2675,7 +2671,6 @@ def jobTimeNotification():
                       "\nMake sure that you start to apply for jobs today!")
 
             break
-    file.close()
     return
 
 

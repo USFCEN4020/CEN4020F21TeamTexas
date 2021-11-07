@@ -1,17 +1,16 @@
-import Challenge_8
+import Challenge_6
 from tud_test_base import set_keyboard_input, get_display_output
 
 
 def test_create_good_unique_non_log_in():
-    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A-", "S", "13"])
-    Challenge_8.create(Challenge_8.accountCount())
+    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A-", "12"])
+    Challenge_6.create(Challenge_6.accountCount())
     output = get_display_output()
     assert output == ["\nCreate A Account",
                       "First Name: ",
                       "Last Name: ",
                       "Username: ",
                       "Password: ",
-                      "Input S for Standard or P for Plus Membership: ",
                       "\nAccount Created.\nNow You Can Log-In!",
                       "\nWant to hear what students have to say about InCollege?",
                       "\nRead about how InCollege helped Ethan Timor:",
@@ -33,29 +32,26 @@ def test_create_good_unique_non_log_in():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_create_good_non_unique_non_log_in():
-    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A-", "S", "John", "Smith", "dasbnnud", "dasdA123-=", "S", "13"])
-    Challenge_8.create(Challenge_8.accountCount())
+    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A-", "John", "Smith", "dasbnnud", "dasdA123-=", "12"])
+    Challenge_6.create(Challenge_6.accountCount())
     output = get_display_output()
     assert output == ["\nCreate A Account",
                       "First Name: ",
                       "Last Name: ",
                       "Username: ",
                       "Password: ",
-                      "Input S for Standard or P for Plus Membership: ",
                       "Username Already Exists, Please Try Again.",
                       "\nCreate A Account",
                       "First Name: ",
                       "Last Name: ",
                       "Username: ",
                       "Password: ",
-                      "Input S for Standard or P for Plus Membership: ",
                       "\nAccount Created.\nNow You Can Log-In!",
                       "\nWant to hear what students have to say about InCollege?",
                       "\nRead about how InCollege helped Ethan Timor:",
@@ -77,15 +73,14 @@ def test_create_good_non_unique_non_log_in():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_create_bad_unique_non_log_in():
-    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A", "dasbnnud1", "dasdA123-=","S", "13"])
-    Challenge_8.create(Challenge_8.accountCount())
+    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A", "dasbnnud1", "dasdA123-=", "12"])
+    Challenge_6.create(Challenge_6.accountCount())
     output = get_display_output()
     assert output == ["\nCreate A Account",
                       "First Name: ",
@@ -95,7 +90,6 @@ def test_create_bad_unique_non_log_in():
                       "The password should have at least one non-alpha character.",
                       "Please Input a UserName: ",
                       "Please Input a Password: ",
-                      "Input S for Standard or P for Plus Membership: ",
                       "\nAccount Created.\nNow You Can Log-In!",
                       "\nWant to hear what students have to say about InCollege?",
                       "\nRead about how InCollege helped Ethan Timor:",
@@ -117,23 +111,19 @@ def test_create_bad_unique_non_log_in():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_login_good():
-    set_keyboard_input(["allenda", "dsdas123A-", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["allenda", "dsdas123A-", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
-                      "New member joined: John Smith",
-                      "New member joined: John Smith\n",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -146,15 +136,14 @@ def test_login_good():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_login_bad():
-    set_keyboard_input(["allenda", "dsdas123-", "allenda", "dsdas123A-", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["allenda", "dsdas123-", "allenda", "dsdas123A-", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
@@ -164,7 +153,6 @@ def test_login_bad():
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -177,22 +165,20 @@ def test_login_bad():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_create_good_unique_log_in():
-    set_keyboard_input(["John", "Smith", "allenda2", "dsdas123A-", "S", "13"])
-    Challenge_8.create(Challenge_8.accountCount())
+    set_keyboard_input(["John", "Smith", "allenda2", "dsdas123A-", "12"])
+    Challenge_6.create(Challenge_6.accountCount())
     output = get_display_output()
     assert output == ["\nCreate A Account",
                       "First Name: ",
                       "Last Name: ",
                       "Username: ",
                       "Password: ",
-                      "Input S for Standard or P for Plus Membership: ",
                       "\nAccount Created.\nNow You Can Log-In!",
                       "\nMenu",
                       "[1] Log In",
@@ -206,30 +192,27 @@ def test_create_good_unique_log_in():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_create_good_non_unique_log_in():
-    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A-","S", "John", "Smith",
-                        "dasbnnud2", "dasdA123-=", "S", "13"])
-    Challenge_8.create(Challenge_8.accountCount())
+    set_keyboard_input(["John", "Smith", "allenda", "dsdas123A-", "John", "Smith",
+                        "dasbnnud2", "dasdA123-=", "12"])
+    Challenge_6.create(Challenge_6.accountCount())
     output = get_display_output()
     assert output == ["\nCreate A Account",
                       "First Name: ",
                       "Last Name: ",
                       "Username: ",
                       "Password: ",
-                      "Input S for Standard or P for Plus Membership: ",
                       "Username Already Exists, Please Try Again.",
                       "\nCreate A Account",
                       "First Name: ",
                       "Last Name: ",
                       "Username: ",
                       "Password: ",
-                      "Input S for Standard or P for Plus Membership: ",
                       "\nAccount Created.\nNow You Can Log-In!",
                       "\nMenu",
                       "[1] Log In",
@@ -243,35 +226,34 @@ def test_create_good_non_unique_log_in():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_pass_non_alpha():
-    assert Challenge_8.passCheck("dsadAda123") == False
+    assert Challenge_6.passCheck("dsadAda123") == False
 
 
 def test_pass_8_char():
-    assert Challenge_8.passCheck("dsad2-A") == False
+    assert Challenge_6.passCheck("dsad2-A") == False
 
 
 def test_pass_12_char():
-    assert Challenge_8.passCheck("dasbdui123abduas-Abdia") == False
+    assert Challenge_6.passCheck("dasbdui123abduas-Abdia") == False
 
 
 def test_pass_upper():
-    assert Challenge_8.passCheck("dsa12331-") == False
+    assert Challenge_6.passCheck("dsa12331-") == False
 
 
 def test_pass_digit1():
-    assert Challenge_8.passCheck("saas=A=+a=-") == False
+    assert Challenge_6.passCheck("saas=A=+a=-") == False
 
 
 def test_learn_skill_beta():
     set_keyboard_input(["1"])
-    Challenge_8.learnSkill()
+    Challenge_6.learnSkill()
     output = get_display_output()
     assert output == ["\nLearn a New Skill",
                       "[1] Learn ...",
@@ -286,8 +268,8 @@ def test_learn_skill_beta():
 
 
 def test_learn_skill_return():
-    set_keyboard_input(["6", "13"])
-    Challenge_8.learnSkill()
+    set_keyboard_input(["6", "12"])
+    Challenge_6.learnSkill()
     output = get_display_output()
     assert output == ["\nLearn a New Skill",
                       "[1] Learn ...",
@@ -309,15 +291,14 @@ def test_learn_skill_return():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
     ]
 
 
 def test_menu_return():
-    set_keyboard_input(["13"])
-    Challenge_8.menu()
+    set_keyboard_input(["12"])
+    Challenge_6.menu()
     output = get_display_output()
     assert output == ["\nMenu",
                       "[1] Log In",
@@ -331,19 +312,17 @@ def test_menu_return():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_posting_a_job_logged_in():
     set_keyboard_input(["1", "Software Engineer", "You have to develop software", "Google",
-                        "California", "$80000", "5", "13"])
-    Challenge_8.searchJob()
+                        "California", "$80000", "5", "12"])
+    Challenge_6.searchJob()
     output = get_display_output()
     assert output == ["\nSearch for a Job",
-                      'Number of applied jobs: 0',
                       "[1] Post a Job",
                       "[2] Search for a job",
                       "[3] Generate saved jobs",
@@ -358,7 +337,6 @@ def test_posting_a_job_logged_in():
                       "Enter a Salary: ",
                       "Job Posted!",
                       "\nSearch for a Job",
-                      'Number of applied jobs: 0',
                       "[1] Post a Job",
                       "[2] Search for a job",
                       "[3] Generate saved jobs",
@@ -378,16 +356,15 @@ def test_posting_a_job_logged_in():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_posting_a_job_not_logged_in():
-    set_keyboard_input(["1", "13"])
-    Challenge_8.signedIn = False
-    Challenge_8.searchJob()
+    set_keyboard_input(["1", "12"])
+    Challenge_6.signedIn = False
+    Challenge_6.searchJob()
     output = get_display_output()
     assert output == ["\nSearch for a Job",
                       "[1] Return to Options",
@@ -413,16 +390,15 @@ def test_posting_a_job_not_logged_in():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_video_being_played():
-    set_keyboard_input(["6", "13"])
-    Challenge_8.signedIn = False
-    Challenge_8.menu()
+    set_keyboard_input(["6", "12"])
+    Challenge_6.signedIn = False
+    Challenge_6.menu()
     output = get_display_output()
     assert output == ["\nWant to hear what students have to say about InCollege?",
                       "\nRead about how InCollege helped Ethan Timor:",
@@ -444,8 +420,7 @@ def test_video_being_played():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "Video is now playing",
                       "\nWant to hear what students have to say about InCollege?",
@@ -468,15 +443,14 @@ def test_video_being_played():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_search_for_user_successful():
-    set_keyboard_input(["John", "Smith", "3", "13"])
-    Challenge_8.findSomeone()
+    set_keyboard_input(["John", "Smith", "3", "12"])
+    Challenge_6.findSomeone()
     output = get_display_output()
     assert output == ["\nFind Someone You Know",
                       "Enter Their First Name: ",
@@ -506,15 +480,14 @@ def test_search_for_user_successful():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_search_for_user_failed():
-    set_keyboard_input(["John", "Smithhh", "13"])
-    Challenge_8.findSomeone()
+    set_keyboard_input(["John", "Smithhh", "12"])
+    Challenge_6.findSomeone()
     output = get_display_output()
     assert output == ["\nFind Someone You Know",
                       "Enter Their First Name: ",
@@ -540,15 +513,14 @@ def test_search_for_user_failed():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_copyright_notice():  # SPRINT3
-    set_keyboard_input(["1", "10", "13"])
-    Challenge_8.ImportantLinks()
+    set_keyboard_input(["1", "10", "12"])
+    Challenge_6.ImportantLinks()
     output = get_display_output()
     assert output == ["\nImportant Links",
                       "[1] Copyright Notice",
@@ -602,16 +574,15 @@ def test_copyright_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_about_notice():  # SPRINT3
-    set_keyboard_input(["10", "13"])
-    Challenge_8.about()
+    set_keyboard_input(["10", "12"])
+    Challenge_6.about()
     output = get_display_output()
     assert output == ["\nAbout InCollege\n\n"
                       "InCollege is an online application that has been designed exclusively for college \n"
@@ -652,16 +623,15 @@ def test_about_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_accessibility_notice():  # SPRINT3
-    set_keyboard_input(["10", "13"])
-    Challenge_8.accessibility()
+    set_keyboard_input(["10", "12"])
+    Challenge_6.accessibility()
     output = get_display_output()
     assert output == ["\nAccessibility\n\n"
                       "InCollege is a place for college students to connect and find opportunities"
@@ -705,16 +675,15 @@ def test_accessibility_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_copyrightpolicy_notice():  # SPRINT3
-    set_keyboard_input(["10", "13"])
-    Challenge_8.copyRightPolicy()
+    set_keyboard_input(["10", "12"])
+    Challenge_6.copyRightPolicy()
     output = get_display_output()
     assert output == ["\nCopyright Policy\n\n"
                       "InCollege respects the intellectual property rights of others and expects its \n"
@@ -756,16 +725,15 @@ def test_copyrightpolicy_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_cookiepolicy_notice():  # SPRINT3
-    set_keyboard_input(["10", "13"])
-    Challenge_8.cookiePolicy()
+    set_keyboard_input(["10", "12"])
+    Challenge_6.cookiePolicy()
     output = get_display_output()
     assert output == ["\nCookie Policy\n\n"
                       "By using InCollege, you consent to the use of cookies.\n\n"
@@ -810,16 +778,15 @@ def test_cookiepolicy_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_copyrightnotice_notice():  # SPRINT3
-    set_keyboard_input(["10", "13"])
-    Challenge_8.copyRightPolicy()
+    set_keyboard_input(["10", "12"])
+    Challenge_6.copyRightPolicy()
     output = get_display_output()
     assert output == ["\nCopyright Policy\n\n"
                       "InCollege respects the intellectual property rights of others and expects its \n"
@@ -861,16 +828,15 @@ def test_copyrightnotice_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_brandpolicy_notice():  # SPRINT3
-    set_keyboard_input(["10", "13"])
-    Challenge_8.brandPolicy()
+    set_keyboard_input(["10", "12"])
+    Challenge_6.brandPolicy()
     output = get_display_output()
     assert output == ["\nBrand Policy\n\n"
                       "Any trademarks and brand features are protected by law. You’ll need InCollege’s \n"
@@ -910,16 +876,15 @@ def test_brandpolicy_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_importantLinks_notice():  # SPRINT3
-    set_keyboard_input(["10", "13"])
-    Challenge_8.ImportantLinks()
+    set_keyboard_input(["10", "12"])
+    Challenge_6.ImportantLinks()
     output = get_display_output()
     assert output == ["\nImportant Links",
                       "[1] Copyright Notice",
@@ -954,24 +919,20 @@ def test_importantLinks_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
 
                       ]
 
 
 def test_privacypolicy_signedin_notice():  # SPRINT3
-    set_keyboard_input(["allenda", "dsdas123A-", "8", "5", "4", "10", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["allenda", "dsdas123A-", "8", "5", "4", "10", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
-                      "New member joined: John Smith",
-                      "New member joined: John Smith\n",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -984,8 +945,7 @@ def test_privacypolicy_signedin_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "\nImportant Links",
                       "[1] Copyright Notice",
@@ -1034,8 +994,7 @@ def test_privacypolicy_signedin_notice():  # SPRINT3
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 

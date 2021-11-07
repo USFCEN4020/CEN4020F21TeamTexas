@@ -1,29 +1,29 @@
-import Challenge_8
+import Challenge_6
 from tud_test_base import set_keyboard_input, get_display_output
 
 
 # Challenge 5
 # Create an account must be ran first before attempting any of the test cases
 def test_create_ten_accounts_5():
-    set_keyboard_input(["James", "Johnson", "James11!", "Johnson11!", "S", "2",
-                        "Daniel", "Jones", "Daniel11!", "Jones11!", "S", "2",
-                        "Charles", "Smith", "Charles11!", "Smith11!", "S", "2",
-                        "David", "Miller", "David11!", "Miller11!", "S", "2",
-                        "Richard", "Jackson", "Richard11!", "Jackson11!", "S", "2",
-                        "Mark", "Thomas", "Mark11!", "Thomas11!", "S", "2",
-                        "Harry", "Lewis", "Harry11!", "Lewis11!", "S", "2",
-                        "Matt", "Harris", "Matt11!", "Harris11!", "S", "2",
-                        "Eddie", "Williams", "Eddie11!", "Williams11!", "S", "2",
-                        "John", "Smith", "JohnS11!", "Spider11!", "S", "13"])
-    Challenge_8.create(Challenge_8.accountCount())
-    assert Challenge_8.accountCount() == 10
+    set_keyboard_input(["James", "Johnson", "James11!", "Johnson11!", "2",
+                        "Daniel", "Jones", "Daniel11!", "Jones11!", "2",
+                        "Charles", "Smith", "Charles11!", "Smith11!", "2",
+                        "David", "Miller", "David11!", "Miller11!", "2",
+                        "Richard", "Jackson", "Richard11!", "Jackson11!", "2",
+                        "Mark", "Thomas", "Mark11!", "Thomas11!", "2",
+                        "Harry", "Lewis", "Harry11!", "Lewis11!", "2",
+                        "Matt", "Harris", "Matt11!", "Harris11!", "2",
+                        "Eddie", "Williams", "Eddie11!", "Williams11!", "2",
+                        "John", "Smith", "JohnS11!", "Spider11!", "12"])
+    Challenge_6.create(Challenge_6.accountCount())
+    assert Challenge_6.accountCount() == 10
 
 
 # Challenge 5
 # Test to make sure up to 10 accounts can be created
 def test_maximum_accounts_number_5():
-    set_keyboard_input(["13"])
-    Challenge_8.create(Challenge_8.accountCount())
+    set_keyboard_input(["12"])
+    Challenge_6.create(Challenge_6.accountCount())
     output = get_display_output()
     assert output == ["\nCreate A Account",
                       "\nAll permitted accounts have been created, please come back later.",
@@ -47,8 +47,7 @@ def test_maximum_accounts_number_5():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "
                       ]
 
@@ -72,8 +71,8 @@ def test_friends_list_for_each_account():
 # of sending that student a request to connect.
 def test_search_name_and_add_friend_5():
     set_keyboard_input(["Daniel11!", "Jones11!", "10", "1", "1",
-                        "Lewis", "1", "13"])
-    Challenge_8.login()
+                        "Lewis", "1", "12"])
+    Challenge_6.login()
     with open("friend_requests.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
@@ -91,45 +90,45 @@ def test_experience_profile():
                         "Code Tester", "Intel", "04/20/20", "10/06/20", "Florida",
                         "Test Code For Big Projects", "3", "Data Scientist", "Amazon",
                         "12/14/20", "06/16/21", "Florida", "Analyze Data", "4",
-                        "7", "3", "13"])
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+                        "7", "3", "12"])
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     with open("login.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip().split("\t")
@@ -159,45 +158,45 @@ def test_experience_profile():
 # an upper case letter no matter how the student entered it. The same formatting will be used
 # for the names of universities.
 def test_major_profile():
-    set_keyboard_input(["1", "2", "computer science", "7", "3", "13"])
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+    set_keyboard_input(["1", "2", "computer science", "7", "3", "12"])
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     with open("login.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip().split("\t")
@@ -210,46 +209,46 @@ def test_about_profile():
     set_keyboard_input(["1", "4", "I am currently a student at the University of South Florida. "
                              "Some programming languages that I am familiar with are Python "
                              "and Java. I have been involved in many projects for Disney. I "
-                             "worked as a programmer to write functioning software.", "7", "3", "13"])
+                             "worked as a programmer to write functioning software.", "7", "3", "12"])
 
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     with open("login.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip().split("\t")
@@ -263,45 +262,45 @@ def test_about_profile():
 # When the student is creating their profile they will be able to enter a title (line of text) for
 # the profile (e.g. "3rd year Computer Science student")
 def test_title_profile():
-    set_keyboard_input(["1", "1", "3rd Year Computer Science Student", "7", "3", "13"])
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+    set_keyboard_input(["1", "1", "3rd Year Computer Science Student", "7", "3", "12"])
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     with open("login.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip().split("\t")
@@ -312,45 +311,45 @@ def test_title_profile():
 # Students will be able to enter an education section that will include school name, degree, and years attended.
 def test_education_section():
     set_keyboard_input(["1", "6", "University Of South Florida", "Computer Science",
-                        "3", "7", "3", "13"])
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+                        "3", "7", "3", "12"])
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     with open("login.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip().split("\t")
@@ -374,45 +373,45 @@ def test_create_and_view_profile():
                              "worked as a programmer to write functioning software.", "5",
                         "1", "Code Developer", "Disney", "11/16/19", "03/19/20", "Florida",
                         "Help Design And Develop Code", "4", "6", "University Of South Florida",
-                        "Computer Science", "3", "7", "2", "3", "13"])
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+                        "Computer Science", "3", "7", "2", "3", "12"])
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     output = get_display_output()
     assert output == ["Profile",
                       "[1] Edit Profile",
@@ -561,8 +560,7 @@ def test_create_and_view_profile():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "]
 
 
@@ -577,45 +575,45 @@ def test_create_profile_in_increments():
                              "worked as a programmer to write functioning software.", "7", "3", "9", "1", "5",
                         "1", "Code Developer", "Disney", "11/16/19", "03/19/20", "Florida",
                         "Help Design And Develop Code", "4", "7", "3", "9", "1", "6", "University Of South Florida",
-                        "Computer Science", "3", "7", "2", "3", "13"])
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+                        "Computer Science", "3", "7", "2", "3", "12"])
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     with open("login.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
@@ -653,45 +651,45 @@ def test_edit_profile():
                         "worked as a tester for testing functioning software.", "5",
                         "1", "Code Tester", "Intel", "04/20/20", "10/06/20", "Florida",
                         "Test Code For Big Projects", "4", "6", "Florida State University",
-                        "Computer Engineering", "4", "7", "3", "13"])
-    Challenge_8.signedIn = True
-    Challenge_8.current_Name = "John Smith"
-    Challenge_8.firstName = "John"
-    Challenge_8.lastName = "Smith"
-    Challenge_8.userName = "JohnS11!"
-    Challenge_8.password = "Spider11!"
-    Challenge_8.emailOpt = "On"
-    Challenge_8.smsOpt = "On"
-    Challenge_8.advOpt = "On"
-    Challenge_8.languageOpt = "English"
-    Challenge_8.titleOpt = "None"
-    Challenge_8.majorOpt = "None"
-    Challenge_8.UniOpt = "None"
-    Challenge_8.aboutOpt = "None"
-    Challenge_8.expOpt1Title = "Title: None"
-    Challenge_8.expOpt1Emp = "Employer: None"
-    Challenge_8.expOpt1Start = "Start Date: None"
-    Challenge_8.expOpt1End = "End Date: None"
-    Challenge_8.expOpt1Loc = "Job Location: None"
-    Challenge_8.expOpt1Des = "Description: None"
-    Challenge_8.expOpt2Title = "Title: None"
-    Challenge_8.expOpt2Emp = "Employer: None"
-    Challenge_8.expOpt2Start = "Start Date: None"
-    Challenge_8.expOpt2End = "End Date: None"
-    Challenge_8.expOpt2Loc = "Job Location: None"
-    Challenge_8.expOpt2Des = "Description: None"
-    Challenge_8.expOpt3Title = "Title: None"
-    Challenge_8.expOpt3Emp = "Employer: None"
-    Challenge_8.expOpt3Start = "Start Date: None"
-    Challenge_8.expOpt3End = "End Date: None"
-    Challenge_8.expOpt3Des = "Description: None"
-    Challenge_8.expOpt3Loc = "Job Location: None"
-    Challenge_8.eduOptSchool = "School: None"
-    Challenge_8.eduOptDegree = "Degree: None"
-    Challenge_8.eduOptYears = "Years: None"
-    Challenge_8.variable = 0
+                        "Computer Engineering", "4", "7", "3", "12"])
+    Challenge_6.signedIn = True
+    Challenge_6.current_Name = "John Smith"
+    Challenge_6.firstName = "John"
+    Challenge_6.lastName = "Smith"
+    Challenge_6.userName = "JohnS11!"
+    Challenge_6.password = "Spider11!"
+    Challenge_6.emailOpt = "On"
+    Challenge_6.smsOpt = "On"
+    Challenge_6.advOpt = "On"
+    Challenge_6.languageOpt = "English"
+    Challenge_6.titleOpt = "None"
+    Challenge_6.majorOpt = "None"
+    Challenge_6.UniOpt = "None"
+    Challenge_6.aboutOpt = "None"
+    Challenge_6.expOpt1Title = "Title: None"
+    Challenge_6.expOpt1Emp = "Employer: None"
+    Challenge_6.expOpt1Start = "Start Date: None"
+    Challenge_6.expOpt1End = "End Date: None"
+    Challenge_6.expOpt1Loc = "Job Location: None"
+    Challenge_6.expOpt1Des = "Description: None"
+    Challenge_6.expOpt2Title = "Title: None"
+    Challenge_6.expOpt2Emp = "Employer: None"
+    Challenge_6.expOpt2Start = "Start Date: None"
+    Challenge_6.expOpt2End = "End Date: None"
+    Challenge_6.expOpt2Loc = "Job Location: None"
+    Challenge_6.expOpt2Des = "Description: None"
+    Challenge_6.expOpt3Title = "Title: None"
+    Challenge_6.expOpt3Emp = "Employer: None"
+    Challenge_6.expOpt3Start = "Start Date: None"
+    Challenge_6.expOpt3End = "End Date: None"
+    Challenge_6.expOpt3Des = "Description: None"
+    Challenge_6.expOpt3Loc = "Job Location: None"
+    Challenge_6.eduOptSchool = "School: None"
+    Challenge_6.eduOptDegree = "Degree: None"
+    Challenge_6.eduOptYears = "Years: None"
+    Challenge_6.variable = 0
 
-    Challenge_8.personalProfile()
+    Challenge_6.personalProfile()
     with open("login.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
@@ -717,8 +715,8 @@ def test_edit_profile():
 # sending that student a request to connect.
 def test_search_university_and_add_friend_5():
     set_keyboard_input(["Daniel11!", "Jones11!", "10", "1", "2",
-                        "Florida State University", "1", "13"])
-    Challenge_8.login()
+                        "Florida State University", "1", "12"])
+    Challenge_6.login()
     with open("friend_requests.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
@@ -733,8 +731,8 @@ def test_search_university_and_add_friend_5():
 # sending that student a request to connect.
 def test_search_major_and_add_friend_5():
     set_keyboard_input(["Mark11!", "Thomas11!", "10", "1", "3",
-                        "Computer Engineering", "1", "13"])
-    Challenge_8.login()
+                        "Computer Engineering", "1", "12"])
+    Challenge_6.login()
     with open("friend_requests.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
@@ -747,18 +745,14 @@ def test_search_major_and_add_friend_5():
 # The next time that that student logs in, they will be informed
 # that they have a pending friend request. They can accept the friend request.
 def test_login_and_accept_request():
-    set_keyboard_input(["Harry11!", "Lewis11!", "11", "1", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["Harry11!", "Lewis11!", "11", "1", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
-                      "New member joined: Matt Harris",
-                      "New member joined: Eddie Williams",
-                      "New member joined: John Smith\n",
-                      "You have 1 pending friend request!\n",
+                      "You have 1 pending request!\n",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -771,8 +765,7 @@ def test_login_and_accept_request():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "\nThese are your friend requests!\n",
                       "You have a friend request from Daniel11!\n",
@@ -794,8 +787,7 @@ def test_login_and_accept_request():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "]
 
     with open("list_of_friends.txt", "r") as a_file:
@@ -813,14 +805,14 @@ def test_login_and_accept_request():
 # that they have a pending friend request. They can reject the friend request.
 # Each student will be able to generate a list of their pending friend requests.
 def test_login_and_reject_friends():
-    set_keyboard_input(["JohnS11!", "Spider11!", "11", "2", "2", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["JohnS11!", "Spider11!", "11", "2", "2", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "You have 2 pending friends requests!",
+                      "You have 2 pending requests!",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -833,8 +825,7 @@ def test_login_and_reject_friends():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "\nThese are your friend requests!\n",
                       "You have a friend request from Daniel11!\n",
@@ -861,8 +852,7 @@ def test_login_and_reject_friends():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "]
 
     with open("friend_requests.txt", "r") as a_file:
@@ -878,14 +868,13 @@ def test_login_and_reject_friends():
 # A new "show my network"option will be added that will present the user with a
 # list of the people that they have connected with (including none).
 def test_view_friend_list():
-    set_keyboard_input(["Daniel11!", "Jones11!", "10", "4", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["Daniel11!", "Jones11!", "10", "4", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -898,8 +887,7 @@ def test_view_friend_list():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "\nThis is your list of friends!\n",
                       "- Harry11!\n",
@@ -921,8 +909,7 @@ def test_view_friend_list():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "]
 
 
@@ -934,8 +921,8 @@ def test_view_friend_list():
 def test_send_accept_friend_request():
     set_keyboard_input(["Daniel11!", "Jones11!", "10", "1", "2",
                         "Florida State University", "1", "1", "JohnS11!",
-                        "Spider11!", "11", "1", "13"])
-    Challenge_8.login()
+                        "Spider11!", "11", "1", "12"])
+    Challenge_6.login()
 
     with open("list_of_friends.txt", "r") as a_file:
         for line in a_file:
@@ -953,14 +940,13 @@ def test_send_accept_friend_request():
 # they are friends with and then selecting the "profile" option that is by a
 # friend's name. When they do this, the friend's profile will be displayed.
 def test_view_friend_profile():
-    set_keyboard_input(["Daniel11!", "Jones11!", "10", "3", "JohnS11!", "4", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["Daniel11!", "Jones11!", "10", "3", "JohnS11!", "4", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -973,8 +959,7 @@ def test_view_friend_profile():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "\nThis is your list of friends!\n",
                       "- Harry11!",
@@ -1040,8 +1025,7 @@ def test_view_friend_profile():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "]
 
 
@@ -1049,14 +1033,13 @@ def test_view_friend_profile():
 # If the friend does not currently have a profile created,
 # then the profile option will not be displayed by that friend's name.
 def test_view_friend_with_no_profile():
-    set_keyboard_input(["Harry11!", "Lewis11!", "10", "3", "Daniel11!", "4", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["Harry11!", "Lewis11!", "10", "3", "Daniel11!", "4", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -1069,8 +1052,7 @@ def test_view_friend_with_no_profile():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "\nThis is your list of friends!\n",
                       "- Daniel11!\n",
@@ -1102,8 +1084,7 @@ def test_view_friend_with_no_profile():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "]
 
 
@@ -1112,16 +1093,13 @@ def test_view_friend_with_no_profile():
 # If they don't have a friend relationship with someone, they won't be able
 # to see that person's profile information.
 def test_view_profile_of_not_friend():
-    set_keyboard_input(["Matt11!", "Harris11!", "10", "3", "Eddie11!", "4", "13"])
-    Challenge_8.login()
+    set_keyboard_input(["Matt11!", "Harris11!", "10", "3", "Eddie11!", "4", "12"])
+    Challenge_6.login()
     output = get_display_output()
     assert output == ["\nLog In",
                       "Please Enter Your UserName: ",
                       "Please Enter Your Password: ",
                       "\nYou Have Successfully Logged In\n",
-                      "Don't forget to create a profile.",
-                      "New member joined: Eddie Williams",
-                      "New member joined: John Smith\n",
                       "\nMenu",
                       "[1] Log In",
                       "[2] Create an Account",
@@ -1134,8 +1112,7 @@ def test_view_profile_of_not_friend():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: ",
                       "\nThis is your list of friends!\n",
                       "\n What do you want to do now?",
@@ -1160,8 +1137,7 @@ def test_view_profile_of_not_friend():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Messages",
-                      "[13] Exit the Program",
+                      "[12] Exit the Program",
                       "Enter your option: "]
 
 
@@ -1171,8 +1147,8 @@ def test_view_profile_of_not_friend():
 # list of friends and they will be removed from the other person's list of friends.
 def test_disconnect():
     set_keyboard_input(["Harry11!", "Lewis11!", "10", "2", "Daniel11!",
-                        "4", "13"])
-    Challenge_8.login()
+                        "4", "12"])
+    Challenge_6.login()
     with open("list_of_friends.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
