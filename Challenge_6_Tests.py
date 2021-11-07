@@ -1,19 +1,19 @@
-import Challenge_6
+import Challenge_8
 from tud_test_base import set_keyboard_input, get_display_output
 
 
 # Create an account must be ran first before attempting any of the test cases
 def test_create_ten_accounts_5():
-    set_keyboard_input(["Allen", "Cheng", "Allenc", "Cheng123-", "2",
-                        "Ray", "Cheng", "Raym", "Cheng123-", "2",
-                        "Dylan", "Bradford", "DylanB", "Cheng123-", "12"])
-    Challenge_6.create(Challenge_6.accountCount())
+    set_keyboard_input(["Allen", "Cheng", "Allenc", "Cheng123-", "S", "2",
+                        "Ray", "Cheng", "Raym", "Cheng123-", "S", "2",
+                        "Dylan", "Bradford", "DylanB", "Cheng123-", "S", "13"])
+    Challenge_8.create(Challenge_8.accountCount())
 
 
 #Login to attempt test cases
 def test_login1():
-    set_keyboard_input(["Allenc", "Cheng123-", "12"])
-    Challenge_6.login()
+    set_keyboard_input(["Allenc", "Cheng123-", "13"])
+    Challenge_8.login()
 
 
 def test_maximum_job_post():
@@ -27,9 +27,9 @@ def test_maximum_job_post():
                         "1", "Job8", "Des8", "Emp8", "Loc8", "Sal8",
                         "1", "Job9", "Des9", "Emp9", "Loc9", "Sal9",
                         "1", "Job10", "Des10", "Emp10", "Loc10", "Sal10", "1",
-                        "5", "12"
+                        "5", "13"
                         ])
-    Challenge_6.searchJob()
+    Challenge_8.searchJob()
     count = 0
     with open("Job_Posts.txt") as a_file:
         for line in a_file:
@@ -39,10 +39,11 @@ def test_maximum_job_post():
 
 
 def test_apply_for_job_created_by_user():
-    set_keyboard_input(["2", "1", "2", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["2", "1", "2", "13"])
+    Challenge_8.searchJob()
     output = get_display_output()
     assert output == ["\nSearch for a Job",
+                      "Number of applied jobs: 0",
                       "[1] Post a Job",
                       "[2] Search for a job",
                       "[3] Generate saved jobs",
@@ -81,21 +82,33 @@ def test_apply_for_job_created_by_user():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Exit the Program",
+                      "[12] Messages",
+                      "[13] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_login2():
-    set_keyboard_input(["Raym", "Cheng123-", "12"])
-    Challenge_6.login()
+    set_keyboard_input(["Raym", "Cheng123-", "13"])
+    Challenge_8.login()
 
 
 def test_apply_for_job():
-    set_keyboard_input(["2", "1", "1", "May 2022", "May 2022", "I am good", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["2", "1", "1", "May 2022", "May 2022", "I am good", "13"])
+    Challenge_8.searchJob()
     output = get_display_output()
     assert output == ["\nSearch for a Job",
+                      "New posted job titled: Job1",
+                      "New posted job titled: Job2",
+                      "New posted job titled: Job3",
+                      "New posted job titled: Job4",
+                      "New posted job titled: Job5",
+                      "New posted job titled: Job6",
+                      "New posted job titled: Job7",
+                      "New posted job titled: Job8",
+                      "New posted job titled: Job9",
+                      "New posted job titled: Job10\n",
+                      "Number of applied jobs: 0",
                       "[1] Post a Job",
                       "[2] Search for a job",
                       "[3] Generate saved jobs",
@@ -138,14 +151,15 @@ def test_apply_for_job():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Exit the Program",
+                      "[12] Messages",
+                      "[13] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_save_a_job():
-    set_keyboard_input(["2", "1", "2", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["2", "1", "2", "13"])
+    Challenge_8.searchJob()
     with open("Job_Posts.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
@@ -156,10 +170,11 @@ def test_save_a_job():
 
 
 def test_generate_list_of_saved_jobs():
-    set_keyboard_input(["3", "1", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["3", "1", "13"])
+    Challenge_8.searchJob()
     output = get_display_output()
     assert output == ["\nSearch for a Job",
+                      "Number of applied jobs: 1",
                       "[1] Post a Job",
                       "[2] Search for a job",
                       "[3] Generate saved jobs",
@@ -186,14 +201,15 @@ def test_generate_list_of_saved_jobs():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Exit the Program",
+                      "[12] Messages",
+                      "[13] Exit the Program",
                       "Enter your option: "
                       ]
 
 
 def test_unsave_a_job():
-    set_keyboard_input(["2", "1", "2", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["2", "1", "2", "13"])
+    Challenge_8.searchJob()
     with open("Job_Posts.txt", "r") as a_file:
         for line in a_file:
             stripped_line = line.strip()
@@ -203,10 +219,11 @@ def test_unsave_a_job():
 
 
 def test_apply_for_job_already_applied():
-    set_keyboard_input(["2", "1", "1", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["2", "1", "1", "13"])
+    Challenge_8.searchJob()
     output = get_display_output()
     assert output == ["\nSearch for a Job",
+                      "Number of applied jobs: 1",
                               "[1] Post a Job",
                               "[2] Search for a job",
                               "[3] Generate saved jobs",
@@ -247,20 +264,21 @@ def test_apply_for_job_already_applied():
                               "[9] Personal Profile",
                               "[10] Show My Network",
                               "[11] See Friend Requests",
-                              "[12] Exit the Program",
+                              "[12] Messages",
+                              "[13] Exit the Program",
                               "Enter your option: "
                         ]
 
 
 
 def test_login3():
-    set_keyboard_input(["Allenc", "Cheng123-", "12"])
-    Challenge_6.login()
+    set_keyboard_input(["Allenc", "Cheng123-", "13"])
+    Challenge_8.login()
 
 
 def test_delete_a_job():
-    set_keyboard_input(["2", "1", "1", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["2", "1", "1", "13"])
+    Challenge_8.searchJob()
     with open("Job_Posts.txt", "r") as a_file:
         lines = a_file.readlines()
         #only checking the first lines to see that the first job was deleted
@@ -268,15 +286,16 @@ def test_delete_a_job():
 
 
 def test_login4():
-    set_keyboard_input(["Raym", "Cheng123-", "12"])
-    Challenge_6.login()
+    set_keyboard_input(["Raym", "Cheng123-", "13"])
+    Challenge_8.login()
 
 
 def test_delete_notification():
-    set_keyboard_input(["5", "12"])
-    Challenge_6.searchJob()
+    set_keyboard_input(["5", "13"])
+    Challenge_8.searchJob()
     output = get_display_output()
     assert output == ["\nSearch for a Job",
+                      "Number of applied jobs: 0",
                       "You applied for 1 job but it has been deleted.\n",
                       "[1] Post a Job",
                       "[2] Search for a job",
@@ -297,12 +316,7 @@ def test_delete_notification():
                       "[9] Personal Profile",
                       "[10] Show My Network",
                       "[11] See Friend Requests",
-                      "[12] Exit the Program",
+                      "[12] Messages",
+                      "[13] Exit the Program",
                       "Enter your option: "
                      ]
-
-
-
-
-
-
